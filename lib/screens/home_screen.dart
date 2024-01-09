@@ -11,9 +11,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late Timer timer;
-  static int initSeconds = 1500;
+  static int initSeconds = 5;
+  static int initPomodoros = 0;
   bool isRunning = false;
-  int totalPomodoros = 0;
+  int totalPomodoros = initPomodoros;
   int totalSeconds = initSeconds;
 
   void onPausePressed() {
@@ -21,6 +22,15 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       isRunning = false;
     });
+  }
+
+  void onReplayPressed() {
+    setState(() {
+      isRunning = false;
+      totalPomodoros = initPomodoros;
+      totalSeconds = initSeconds;
+    });
+    timer.cancel();
   }
 
   void onStartPressed() {
@@ -73,13 +83,23 @@ class _HomeScreenState extends State<HomeScreen> {
           Flexible(
             flex: 3,
             child: Center(
-              child: IconButton(
-                color: Theme.of(context).cardColor,
-                icon: Icon(isRunning
-                    ? Icons.pause_circle_outlined
-                    : Icons.play_circle_outline),
-                iconSize: 98,
-                onPressed: isRunning ? onPausePressed : onStartPressed,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    color: Theme.of(context).cardColor,
+                    icon: Icon(isRunning
+                        ? Icons.pause_circle_outlined
+                        : Icons.play_circle_outline),
+                    iconSize: 98,
+                    onPressed: isRunning ? onPausePressed : onStartPressed,
+                  ),
+                  IconButton(
+                      color: Theme.of(context).cardColor,
+                      icon: const Icon(Icons.replay_outlined),
+                      iconSize: 46,
+                      onPressed: onReplayPressed),
+                ],
               ),
             ),
           ),
