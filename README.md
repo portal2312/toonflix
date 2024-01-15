@@ -51,3 +51,4 @@ Webtoon App:
 - [AppBar](docs/AppBar.md)
 - [Data Fetching](docs/Data%20Fetching.md)
 - [formJson](docs/formJson.md)
+- [waitForWebToons](docs/waitForWebToons.md)
