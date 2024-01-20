@@ -54,3 +54,4 @@ Webtoon App:
 - [waitForWebToons](docs/waitForWebToons.md)
 - [FutureBuilder](docs/FutureBuilder.md)
 - [ListView](docs/ListView.md)
+- [Webtoon Card](docs/Webtoon%20Card.md)
