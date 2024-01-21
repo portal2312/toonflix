@@ -55,3 +55,4 @@ Webtoon App:
 - [FutureBuilder](docs/FutureBuilder.md)
 - [ListView](docs/ListView.md)
 - [Webtoon Card](docs/Webtoon%20Card.md)
+- [Detail Screen](docs/Detail%20Screen.md)
