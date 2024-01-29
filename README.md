@@ -58,3 +58,4 @@ Webtoon App:
 - [Detail Screen](docs/Detail%20Screen.md)
 - [Hero](docs/Header.md)
 - [ApiService](docs/ApiService.md)
+- [Futures](docs/Futures.md)

@@ -1,3 +1,7 @@
+`DetailScreen` Widget 안에 (`Future<WebtoonDetailModel>` 유형의) `webtoon` 과 (`Future<List<WebtoonEpisodeModel>>` 유형의) `episodes` instance variables 를 정의합니다.
+이 때, `DetailScreen` Widget 의 `id` instance variable 를 argument 로 하기 위해서 VSCode Code Action _Convert ot StatefulWidget_ 을 선택하여 [`StatefulWidget`](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html) 으로 변경 후 `initState` 를 override 하고 그 안에서 서비스 API 를 호출하도록 작성합니다. `lib/screens/detail_screen.dart`:
+
+```dart
 import 'package:flutter/material.dart';
 import 'package:toonflix/models/webtoon_detail_model.dart';
 import 'package:toonflix/models/webtoon_episode_model.dart';
@@ -86,3 +90,6 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 }
+```
+
+- 이전에 `StatelessWidget` 일 때 `id`, `thumb`, `title` instance variables 는 `StatefulWidget` 으로 변경되면서 `widget.id`, `widget.thumb`, `widget.title` 로 변경됩니다.
