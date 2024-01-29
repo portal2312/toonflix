@@ -1,3 +1,6 @@
+`DetailScreen` Widget 의 `webtoon` instance variable 에 대한 UI 를 작성합니다. `build` method 안에 `Scaffold.body` 하위 `Column.children` 마지막에 `SizedBox` 와 `FutureBuilder` 를 아래와 같이 작성합니다. `lib/screens/detail_screen.dart`:
+
+```dart
 import 'package:flutter/material.dart';
 import 'package:toonflix/models/webtoon_detail_model.dart';
 import 'package:toonflix/models/webtoon_episode_model.dart';
@@ -122,3 +125,4 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 }
+```
