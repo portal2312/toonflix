@@ -1,3 +1,14 @@
+`DetailScreen` Widget 의 `episodes` instance variable 의 UI 를 만듭니다.
+
+1. `build` method 안에 `Scaffold.body` 하위 `Column` 첫 번째 하위인 `SizedBox` 제거합니다.
+2. `DetailScreen` Widget 의 `webtoon` instance variable 를 사용 중인 `FutureBuilder` 의 `builder` method body 에서 `Padding` 을 제거합니다.
+3. `build` method 안에 `Scaffold.body` 하위 `Column` 을 `SingleChildScrollView` 로 감쌉니다. 그리고 간격을 주기 위해 `SingleChildScrollView.padding` 을 `EdgeInsets.all` 으로 정의합니다.
+4. `build` method 안에 `Scaffold.body` 에 정의 된 `SingleChildScrollView` 하위 `Padding` 하위 `Column` 에 `SizedBox` 를 추가합니다.
+5. 그리고 `DetailScreen` Widget 의 `episodes` instance variable 를 사용 할 `FutureBuilder` 를 아래와 같이 작성합니다.
+
+`lib/screens/detail_screen.dart`:
+
+```dart
 import 'package:flutter/material.dart';
 import 'package:toonflix/models/webtoon_detail_model.dart';
 import 'package:toonflix/models/webtoon_episode_model.dart';
@@ -164,3 +175,6 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 }
+```
+
+- `DetailScreen` Widget 의 `episodes` instance variable 는 값이 크지 않기 때문에 UI 를 `Column` 을 사용합니다. 그리고 데이터가 존재 시, **[collection for](https://dart.dev/language/collections#control-flow-operators)** 를 사용하여 일괄적으로 `Container` Widget 을 사용한 버튼이 그려질 수 있도록 합니다. 만일 데이터가 없다면 빈 화면을 표현하기 위해 `Container` 반환합니다.

@@ -60,3 +60,4 @@ Webtoon App:
 - [ApiService](docs/ApiService.md)
 - [Futures](docs/Futures.md)
 - [Detail Info](docs/Detail%20Info.md)
+- [Episodes](docs/Episodes.md)
