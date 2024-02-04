@@ -61,3 +61,4 @@ Webtoon App:
 - [Futures](docs/Futures.md)
 - [Detail Info](docs/Detail%20Info.md)
 - [Episodes](docs/Episodes.md)
+- [Url Launcher](docs/Url%20Launcher.md)
