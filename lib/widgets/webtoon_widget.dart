@@ -33,6 +33,7 @@ class Webtoon extends StatelessWidget {
                 ],
               ),
               width: 250,
+              // BUG: #6 NetworkImageLoadException (HTTP request failed, statusCode: 403, ...)
               child: Image.network(
                 thumb,
                 headers: const {

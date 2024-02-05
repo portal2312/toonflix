@@ -70,6 +70,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         ],
                       ),
                       width: 250,
+                      // BUG: #6 NetworkImageLoadException (HTTP request failed, statusCode: 403, ...)
                       child: Image.network(
                         widget.thumb,
                         headers: const {
