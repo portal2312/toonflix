@@ -72,7 +72,6 @@ class _DetailScreenState extends State<DetailScreen> {
                       width: 250,
                       child: Image.network(
                         widget.thumb,
-                        // HACK: #2 NetworkImageLoadException (HTTP request failed, statusCode: 403, https://URL) solution is adding "User-Agent" headers.
                         headers: const {
                           "User-Agent":
                               "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
