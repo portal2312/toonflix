@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:toonflix/screens/detail_screen.dart';
 
@@ -33,13 +34,13 @@ class Webtoon extends StatelessWidget {
                 ],
               ),
               width: 250,
-              // BUG: #6 NetworkImageLoadException (HTTP request failed, statusCode: 403, ...)
               child: Image.network(
                 thumb,
-                headers: const {
-                  "User-Agent":
-                      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-                },
+                headers: kIsWeb
+                    ? null
+                    : const {
+                        'Referer': 'https://comic.naver.com',
+                      },
               ),
             ),
           ),

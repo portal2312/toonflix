@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:toonflix/models/webtoon_detail_model.dart';
 import 'package:toonflix/models/webtoon_episode_model.dart';
@@ -70,13 +71,13 @@ class _DetailScreenState extends State<DetailScreen> {
                         ],
                       ),
                       width: 250,
-                      // BUG: #6 NetworkImageLoadException (HTTP request failed, statusCode: 403, ...)
                       child: Image.network(
                         widget.thumb,
-                        headers: const {
-                          "User-Agent":
-                              "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-                        },
+                        headers: kIsWeb
+                            ? null
+                            : const {
+                                'Referer': 'https://comic.naver.com',
+                              },
                       ),
                     ),
                   ),
