@@ -25,7 +25,7 @@
       "name": "Android",
       "request": "launch",
       "type": "dart",
-      "deviceId": "emulator-5554"
+      "deviceId": "emulator"
     },
     {
       "name": "Chrome",
@@ -43,7 +43,7 @@
       "name": "iOS",
       "request": "launch",
       "type": "dart",
-      "deviceId": "C4E19B28-8259-429E-B1A9-E0873B2CBF5F"
+      "deviceId": "iphone"
     }
   ],
   "compounds": [
