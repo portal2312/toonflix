@@ -1,3 +1,14 @@
+즐겨찾기 기능을 추가합니다.
+
+1. 선택 된 대상의 즐겨찾기 정보를 단순히 단말에 저장 할 수 있도록 [shared_preferences](https://pub.dev/packages/shared_preferences) package 를 설치합니다.
+2. `DetailScreen` widget 의 즐겨찾기 여부를 갖는 `isLiked` property 와 단말 정보를 갖는 `prefs` property 를 정의합니다.
+3. `DetailScreen` widget 의 `initPrefs` method 를 정의합니다. 이는 `SharedPreferences` 를 사용하여 `likedToons` key 기준으로 초기화하기 또는 선택 된 대상의 즐겨찾기 여부를 확인하기 를 합니다. 그리고 `initState` method 안에서 호출합니다.
+4. `DetailScreen` widget 의 `onFavoriteTap` method 를 정의합니다. 이는 `prefs` 의 `likedToons` key 를 기준으로 선택 된 대상의 `widget.id` 를 지우거나 추가한 후 `prefs` 의 `likedToons` key 에 적용합니다. 그리고 `setState` 를 사용하여 `DetailScreen` widget 의 `isLiked` property 값을 반전하여 적용합니다.
+5. `DetailScreen` widget 의 `build` method 안에 [`AppBar`](https://api.flutter.dev/flutter/material/AppBar-class.html) widget 에 `actions` property 를 추가하고 하위에 [IconButton](https://api.flutter.dev/flutter/material/IconButton-class.html) 를 추가합니다. 추가 된 [IconButton](https://api.flutter.dev/flutter/material/IconButton-class.html)의 `icon` property 는 `DetailScreen` widget 의 `isLiked` instance variable 에 따른 [Icons](https://api.flutter.dev/flutter/material/Icons-class.html) 을 정의될 수 있도록 제어하고 `onPressed` method 에는 `onFavoriteTap` 정의합니다.
+
+`lib/screens/detail_screen.dart`:
+
+```dart
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -75,10 +86,10 @@ class _DetailScreenState extends State<DetailScreen> {
         foregroundColor: Colors.green,
         actions: [
           IconButton(
+            onPressed: onFavoriteTap,
             icon: Icon(
               isLiked ? Icons.favorite : Icons.favorite_outline_outlined,
             ),
-            onPressed: onFavoriteTap,
           )
         ],
         title: Text(
@@ -183,3 +194,4 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 }
+```
