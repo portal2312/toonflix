@@ -13,5 +13,6 @@
     "Viewports",
     "Webtoon",
     "webtoons"
-  ]
+  ],
+  "dart.flutterSdkPath": ".fvm/versions/3.16.9"
 }
